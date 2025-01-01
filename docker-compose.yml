@@ -1,0 +1,13 @@
+version: '3.8'
+
+services:
+  minecraft-fake-server:
+    build: .
+    container_name: minecraft-fake-server
+    ports:
+      - "25568:25565/tcp"
+      - "19134:19132/udp"
+      - "8198:8192/tcp"
+    volumes:
+      - ./config.yml:/app/config.yml
+    restart: unless-stopped
